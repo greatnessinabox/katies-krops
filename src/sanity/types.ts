@@ -958,6 +958,211 @@ export type TEAM_MEMBERS_QUERY_RESULT = Array<{
   } | null;
 }>;
 
+// Source: src/sanity/lib/queries.ts
+// Variable: BLOG_POST_BY_SLUG_QUERY
+// Query: *[_type == "blogPost" && slug.current == $slug][0] {    ...,    body[] {      ...,      _type == "image" => {        ...,        asset-> { _id, url, metadata { lqip, dimensions } }      }    },    author-> { name, image },    image {      ...,      asset-> { _id, url, metadata { lqip, dimensions } }    }  }
+export type BLOG_POST_BY_SLUG_QUERY_RESULT = {
+  _id: string;
+  _type: "blogPost";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  excerpt?: string;
+  body: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "blockquote"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }
+    | {
+        asset: {
+          _id: string;
+          url: string | null;
+          metadata: {
+            lqip: string | null;
+            dimensions: SanityImageDimensions | null;
+          } | null;
+        } | null;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        caption?: string;
+        _type: "image";
+        _key: string;
+      }
+  > | null;
+  author: {
+    name: string | null;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    } | null;
+  } | null;
+  publishedAt?: string;
+  image: {
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+        dimensions: SanityImageDimensions | null;
+      } | null;
+    } | null;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  seo?: Seo;
+} | null;
+
+// Source: src/sanity/lib/queries.ts
+// Variable: EVENT_BY_SLUG_QUERY
+// Query: *[_type == "event" && slug.current == $slug][0] {    ...,    description[] {      ...,      _type == "image" => {        ...,        asset-> { _id, url, metadata { lqip, dimensions } }      }    },    image {      ...,      asset-> { _id, url, metadata { lqip, dimensions } }    }  }
+export type EVENT_BY_SLUG_QUERY_RESULT = {
+  _id: string;
+  _type: "event";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  description: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  date?: string;
+  endDate?: string;
+  location?: Location;
+  eventUrl?: string;
+  image: {
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+        dimensions: SanityImageDimensions | null;
+      } | null;
+    } | null;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  category?: "dinner" | "fundraiser" | "other" | "springfest" | "volunteer";
+  seo?: Seo;
+} | null;
+
+// Source: src/sanity/lib/queries.ts
+// Variable: GROWERS_QUERY
+// Query: *[_type == "grower"] | order(name asc) {    _id,    _type,    name,    location,    gardenName,    story,    image {      ...,      asset-> { _id, url, metadata { lqip, dimensions } }    }  }
+export type GROWERS_QUERY_RESULT = Array<{
+  _id: string;
+  _type: "grower";
+  name: string | null;
+  location: string | null;
+  gardenName: string | null;
+  story: string | null;
+  image: {
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+        dimensions: SanityImageDimensions | null;
+      } | null;
+    } | null;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+}>;
+
+// Source: src/sanity/lib/queries.ts
+// Variable: NEWS_ITEMS_QUERY
+// Query: *[_type == "newsItem"] | order(publishedAt desc) {    _id,    _type,    title,    url,    source,    publishedAt,    excerpt  }
+export type NEWS_ITEMS_QUERY_RESULT = Array<{
+  _id: string;
+  _type: "newsItem";
+  title: string | null;
+  url: string | null;
+  source: string | null;
+  publishedAt: string | null;
+  excerpt: string | null;
+}>;
+
+// Source: src/sanity/lib/queries.ts
+// Variable: INSTRUCTORS_QUERY
+// Query: *[_type == "instructor"] | order(name asc) {    _id,    _type,    name,    bio,    specialties,    image {      ...,      asset-> { _id, url, metadata { lqip, dimensions } }    }  }
+export type INSTRUCTORS_QUERY_RESULT = Array<{
+  _id: string;
+  _type: "instructor";
+  name: string | null;
+  bio: string | null;
+  specialties: null;
+  image: {
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+        dimensions: SanityImageDimensions | null;
+      } | null;
+    } | null;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
@@ -969,5 +1174,10 @@ declare module "@sanity/client" {
     '\n  *[_type == "blogPost"] | order(publishedAt desc) {\n    _id,\n    _type,\n    title,\n    slug,\n    excerpt,\n    publishedAt,\n    author-> { name },\n    image {\n      ...,\n      asset-> {\n        _id,\n        url,\n        metadata { lqip, dimensions }\n      }\n    }\n  }\n': BLOG_POSTS_QUERY_RESULT;
     '\n  *[_type == "faqItem"] | order(order asc) {\n    _id,\n    _type,\n    question,\n    answer,\n    category\n  }\n': FAQ_ITEMS_QUERY_RESULT;
     '\n  *[_type == "teamMember"] | order(order asc) {\n    _id,\n    _type,\n    name,\n    role,\n    bio,\n    image {\n      ...,\n      asset-> {\n        _id,\n        url,\n        metadata { lqip, dimensions }\n      }\n    }\n  }\n': TEAM_MEMBERS_QUERY_RESULT;
+    '\n  *[_type == "blogPost" && slug.current == $slug][0] {\n    ...,\n    body[] {\n      ...,\n      _type == "image" => {\n        ...,\n        asset-> { _id, url, metadata { lqip, dimensions } }\n      }\n    },\n    author-> { name, image },\n    image {\n      ...,\n      asset-> { _id, url, metadata { lqip, dimensions } }\n    }\n  }\n': BLOG_POST_BY_SLUG_QUERY_RESULT;
+    '\n  *[_type == "event" && slug.current == $slug][0] {\n    ...,\n    description[] {\n      ...,\n      _type == "image" => {\n        ...,\n        asset-> { _id, url, metadata { lqip, dimensions } }\n      }\n    },\n    image {\n      ...,\n      asset-> { _id, url, metadata { lqip, dimensions } }\n    }\n  }\n': EVENT_BY_SLUG_QUERY_RESULT;
+    '\n  *[_type == "grower"] | order(name asc) {\n    _id,\n    _type,\n    name,\n    location,\n    gardenName,\n    story,\n    image {\n      ...,\n      asset-> { _id, url, metadata { lqip, dimensions } }\n    }\n  }\n': GROWERS_QUERY_RESULT;
+    '\n  *[_type == "newsItem"] | order(publishedAt desc) {\n    _id,\n    _type,\n    title,\n    url,\n    source,\n    publishedAt,\n    excerpt\n  }\n': NEWS_ITEMS_QUERY_RESULT;
+    '\n  *[_type == "instructor"] | order(name asc) {\n    _id,\n    _type,\n    name,\n    bio,\n    specialties,\n    image {\n      ...,\n      asset-> { _id, url, metadata { lqip, dimensions } }\n    }\n  }\n': INSTRUCTORS_QUERY_RESULT;
   }
 }

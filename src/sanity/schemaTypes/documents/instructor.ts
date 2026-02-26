@@ -27,6 +27,13 @@ export const instructor = defineType({
       rows: 4,
     }),
     defineField({
+      name: 'specialties',
+      title: 'Specialties',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'Areas of expertise (e.g., Nature Education, Poetry, Cooking)',
+    }),
+    defineField({
       name: 'image',
       title: 'Photo',
       type: 'image',

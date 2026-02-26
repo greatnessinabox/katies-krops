@@ -1,0 +1,129 @@
+'use client'
+
+import { useRef, useState, useEffect, useCallback } from 'react'
+import { PortableText } from '@/components/portable-text'
+
+interface FaqItem {
+  _id: string
+  question: string | null
+  answer: any
+  category: string | null
+}
+
+interface FaqCategory {
+  name: string
+  label: string
+  items: FaqItem[]
+}
+
+interface FaqAccordionProps {
+  categories: FaqCategory[]
+}
+
+export function FaqAccordion({ categories }: FaqAccordionProps) {
+  const [openItems, setOpenItems] = useState<Record<string, string | null>>({})
+
+  const toggleItem = useCallback(
+    (category: string, itemId: string) => {
+      setOpenItems((prev) => ({
+        ...prev,
+        [category]: prev[category] === itemId ? null : itemId,
+      }))
+    },
+    []
+  )
+
+  return (
+    <div className="space-y-12">
+      {categories.map((category) => (
+        <section key={category.name}>
+          <h2 className="mb-6 font-display text-2xl font-bold text-stone-900">
+            {category.label}
+          </h2>
+          <div className="divide-y divide-border rounded-2xl border border-border bg-white shadow-sm">
+            {category.items.map((item) => (
+              <AccordionItem
+                key={item._id}
+                item={item}
+                isOpen={openItems[category.name] === item._id}
+                onToggle={() => toggleItem(category.name, item._id)}
+              />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  )
+}
+
+function AccordionItem({
+  item,
+  isOpen,
+  onToggle,
+}: {
+  item: FaqItem
+  isOpen: boolean
+  onToggle: () => void
+}) {
+  const contentRef = useRef<HTMLDivElement>(null)
+  const [height, setHeight] = useState(0)
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(isOpen ? contentRef.current.scrollHeight : 0)
+    }
+  }, [isOpen])
+
+  const panelId = `faq-panel-${item._id}`
+  const buttonId = `faq-button-${item._id}`
+
+  return (
+    <div>
+      <h3>
+        <button
+          id={buttonId}
+          type="button"
+          onClick={onToggle}
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-sage-light/10"
+        >
+          <span className="font-display text-base font-semibold text-stone-900 sm:text-lg">
+            {item.question}
+          </span>
+          <svg
+            className={`h-5 w-5 shrink-0 text-stone-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </button>
+      </h3>
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
+        style={{ height }}
+        className="overflow-hidden transition-[height] duration-200 ease-in-out"
+      >
+        <div ref={contentRef} className="px-6 pb-5">
+          <div className="prose prose-stone max-w-none text-stone-600 prose-p:leading-relaxed">
+            {item.answer ? (
+              <PortableText value={item.answer} />
+            ) : (
+              <p>No answer provided yet.</p>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

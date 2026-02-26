@@ -132,3 +132,84 @@ export const TEAM_MEMBERS_QUERY = defineQuery(`
     }
   }
 `)
+
+// Blog Post Detail
+export const BLOG_POST_BY_SLUG_QUERY = defineQuery(`
+  *[_type == "blogPost" && slug.current == $slug][0] {
+    ...,
+    body[] {
+      ...,
+      _type == "image" => {
+        ...,
+        asset-> { _id, url, metadata { lqip, dimensions } }
+      }
+    },
+    author-> { name, image },
+    image {
+      ...,
+      asset-> { _id, url, metadata { lqip, dimensions } }
+    }
+  }
+`)
+
+// Event Detail
+export const EVENT_BY_SLUG_QUERY = defineQuery(`
+  *[_type == "event" && slug.current == $slug][0] {
+    ...,
+    description[] {
+      ...,
+      _type == "image" => {
+        ...,
+        asset-> { _id, url, metadata { lqip, dimensions } }
+      }
+    },
+    image {
+      ...,
+      asset-> { _id, url, metadata { lqip, dimensions } }
+    }
+  }
+`)
+
+// Growers
+export const GROWERS_QUERY = defineQuery(`
+  *[_type == "grower"] | order(name asc) {
+    _id,
+    _type,
+    name,
+    location,
+    gardenName,
+    story,
+    image {
+      ...,
+      asset-> { _id, url, metadata { lqip, dimensions } }
+    }
+  }
+`)
+
+// News Items
+export const NEWS_ITEMS_QUERY = defineQuery(`
+  *[_type == "newsItem"] | order(publishedAt desc) {
+    _id,
+    _type,
+    title,
+    url,
+    source,
+    publishedAt,
+    excerpt
+  }
+`)
+
+// Instructors
+export const INSTRUCTORS_QUERY = defineQuery(`
+  *[_type == "instructor"] | order(name asc) {
+    _id,
+    _type,
+    name,
+    bio,
+    specialties,
+    image {
+      ...,
+      asset-> { _id, url, metadata { lqip, dimensions } }
+    }
+  }
+`)
