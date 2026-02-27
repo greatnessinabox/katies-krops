@@ -6,6 +6,7 @@ import { draftMode } from 'next/headers'
 import { DisableDraftMode } from '@/components/layout/disable-draft-mode'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
+import { SITE_URL } from '@/lib/site-config'
 import './globals.css'
 
 const fraunces = Fraunces({
@@ -21,18 +22,24 @@ const sourceSans = Source_Sans_3({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : 'https://katieskrops.com')
-  ),
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: './',
+  },
   title: {
     default: "Katie's Krops — Growing for the Greater Good",
     template: "%s | Katie's Krops",
   },
   description:
     "Katie's Krops empowers youth to start and maintain vegetable gardens and donate the harvest to help feed people in need in their community.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
@@ -44,6 +51,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: "Katie's Krops",
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 512,
+        height: 512,
+        alt: "Katie's Krops logo",
+      },
+    ],
   },
 }
 

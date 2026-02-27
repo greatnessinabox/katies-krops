@@ -1,12 +1,9 @@
 import type { MetadataRoute } from 'next'
 import { client } from '@/sanity/lib/client'
+import { SITE_URL } from '@/lib/site-config'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : 'https://katieskrops.com')
+  const baseUrl = SITE_URL
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [

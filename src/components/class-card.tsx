@@ -28,39 +28,42 @@ export function ClassCard({ ...cls }: ClassCardProps) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all hover:shadow-md">
       {/* Image */}
-      <Link
-        href={`/outdoor-classroom/${slug}`}
-        className="relative aspect-[3/2] overflow-hidden bg-sage-light/30"
-        aria-label={`View ${title}`}
-      >
-        {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt={cls.image?.alt ?? title}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-            {...(lqip ? { placeholder: 'blur' as const, blurDataURL: lqip } : {})}
-          />
-        ) : (
-          <div className="flex h-full items-center justify-center bg-sage-light/30">
-            <svg className="h-12 w-12 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-            </svg>
-          </div>
-        )}
+      <div className="relative aspect-[3/2] overflow-hidden bg-sage-light/30">
+        <Link
+          href={`/outdoor-classroom/${slug}`}
+          className="block h-full"
+          aria-label={`View ${title}`}
+        >
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt={cls.image?.alt ?? title}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              {...(lqip ? { placeholder: 'blur' as const, blurDataURL: lqip } : {})}
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center bg-sage-light/30">
+              <svg className="h-12 w-12 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
+              </svg>
+            </div>
+          )}
+        </Link>
 
         {/* Status Badge */}
         {cls.status && cls.status !== 'upcoming' && (
           <span
-            className={`absolute right-3 top-3 rounded-full px-2.5 py-1 text-xs font-semibold ${
+            aria-hidden="true"
+            className={`pointer-events-none absolute right-3 top-3 rounded-full px-2.5 py-1 text-xs font-semibold ${
               statusColors[cls.status] || 'bg-stone-100 text-stone-600'
             }`}
           >
             {cls.status.charAt(0).toUpperCase() + cls.status.slice(1)}
           </span>
         )}
-      </Link>
+      </div>
 
       {/* Content */}
       <div className="flex flex-1 flex-col gap-3 p-5">
