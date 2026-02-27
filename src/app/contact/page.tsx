@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   title: "Contact Us | Katie's Krops",
   description:
     "Get in touch with Katie's Krops in Summerville, SC. Reach out about volunteering, starting a garden, donations, or partnerships.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/contact' },
   openGraph: {
     title: "Contact Us | Katie's Krops",
     description:
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/contact',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

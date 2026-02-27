@@ -4,6 +4,8 @@ export const metadata: Metadata = {
   title: "Photo Gallery | Katie's Krops",
   description:
     "Browse photos from Katie's Krops gardens, outdoor classes, community dinners, and events. Moments of growing, learning, and giving back.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/gallery' },
   openGraph: {
     title: "Photo Gallery | Katie's Krops",
     description:
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/gallery',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

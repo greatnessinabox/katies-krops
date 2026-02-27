@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   title: "Get Involved | Katie's Krops",
   description:
     "Join Katie's Krops — volunteer, start a garden, or become a grower. Help us grow food and feed communities across the country.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/get-involved' },
   openGraph: {
     title: "Get Involved | Katie's Krops",
     description:
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/get-involved',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

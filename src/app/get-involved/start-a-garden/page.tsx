@@ -4,6 +4,8 @@ export const metadata: Metadata = {
   title: "Start a Garden | Katie's Krops",
   description:
     "Apply for a Katie's Krops garden grant. We provide seeds, supplies, and mentorship to youth ages 9-16 who want to grow food for those in need.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/get-involved/start-a-garden' },
   openGraph: {
     title: "Start a Garden | Katie's Krops",
     description:
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/get-involved/start-a-garden',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

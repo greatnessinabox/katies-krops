@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   title: "About Katie's Krops | Our Story & Mission",
   description:
     "Learn how Katie Stagliano started Katie's Krops at age 9 with a single cabbage and grew it into a movement empowering youth across 30+ states.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/about' },
   openGraph: {
     title: "About Katie's Krops | Our Story & Mission",
     description:
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/about',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

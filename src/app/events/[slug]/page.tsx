@@ -54,15 +54,17 @@ export async function generateMetadata({
   return {
     title: uniqueTitle,
     description,
+    robots: { index: true, follow: true },
+    alternates: { canonical: `/events/${slug}` },
     openGraph: {
       title: `${uniqueTitle} | Katie's Krops`,
       description,
       url: `https://katieskrops.com/events/${slug}`,
       siteName: "Katie's Krops",
       type: 'website',
-      ...(imageUrl && {
-        images: [{ url: imageUrl, width: 1200, height: 630 }],
-      }),
+      ...(imageUrl
+        ? { images: [{ url: imageUrl, width: 1200, height: 630 }] }
+        : { images: [{ url: '/images/logo.png', width: 512, height: 512 }] }),
     },
   }
 }

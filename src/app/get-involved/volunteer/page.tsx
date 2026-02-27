@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   title: "Volunteer | Katie's Krops",
   description:
     "Volunteer with Katie's Krops in Summerville, SC. Help with community dinners, garden maintenance, outdoor classroom events, and more.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/get-involved/volunteer' },
   openGraph: {
     title: "Volunteer | Katie's Krops",
     description:
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/get-involved/volunteer',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

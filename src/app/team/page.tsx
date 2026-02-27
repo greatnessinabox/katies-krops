@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   title: "Our Team | Katie's Krops",
   description:
     "Meet the dedicated team behind Katie's Krops who work every day to empower youth gardeners and feed communities in need.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/team' },
   openGraph: {
     title: "Our Team | Katie's Krops",
     description:
@@ -16,6 +18,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/team',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

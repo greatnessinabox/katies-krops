@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   title: "Community Dinners | Katie's Krops",
   description:
     "Katie's Krops hosts free community dinners using fresh produce from our gardens. Join us in Summerville, SC for a meal prepared with love.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/dinners' },
   openGraph: {
     title: "Community Dinners | Katie's Krops",
     description:
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/dinners',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

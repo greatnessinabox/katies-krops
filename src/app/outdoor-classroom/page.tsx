@@ -10,10 +10,13 @@ export const metadata: Metadata = {
   title: 'Outdoor Classroom',
   description:
     "Explore nature-based classes for kids and families at Katie's Krops Outdoor Classroom in Summerville, SC. Gardening, cooking, art, nature walks, and more.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/outdoor-classroom' },
   openGraph: {
     title: "Outdoor Classroom | Katie's Krops",
     description:
       "Explore nature-based classes for kids and families at Katie's Krops Outdoor Classroom.",
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: "Events | Katie's Krops",
   description:
     "Upcoming events and gatherings at Katie's Krops. Join us for community dinners, fundraisers, volunteer days, and more in Summerville, SC.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/events' },
   openGraph: {
     title: "Events | Katie's Krops",
     description:
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/events',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

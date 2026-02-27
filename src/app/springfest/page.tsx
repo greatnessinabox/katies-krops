@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   title: "Springfest | Katie's Krops",
   description:
     "Springfest is Katie's Krops' annual outdoor celebration and fundraiser. Join us April 25, 2026 in Summerville, SC for live music, food, kids' activities, and more.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/springfest' },
   openGraph: {
     title: "Springfest 2026 | Katie's Krops",
     description:
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/springfest',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

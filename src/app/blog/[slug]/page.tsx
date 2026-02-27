@@ -45,6 +45,8 @@ export async function generateMetadata({
     description:
       post.excerpt ||
       `Read "${post.title}" on the Katie's Krops blog.`,
+    robots: { index: true, follow: true },
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: `${post.title} | Katie's Krops`,
       description:
@@ -54,9 +56,9 @@ export async function generateMetadata({
       siteName: "Katie's Krops",
       type: 'article',
       ...(post.publishedAt && { publishedTime: post.publishedAt }),
-      ...(imageUrl && {
-        images: [{ url: imageUrl, width: 1200, height: 630 }],
-      }),
+      ...(imageUrl
+        ? { images: [{ url: imageUrl, width: 1200, height: 630 }] }
+        : { images: [{ url: '/images/logo.png', width: 512, height: 512 }] }),
     },
   }
 }

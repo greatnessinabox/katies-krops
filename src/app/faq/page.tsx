@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   title: "Frequently Asked Questions | Katie's Krops",
   description:
     "Find answers to common questions about Katie's Krops, starting a garden, volunteering, donations, and our programs.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/faq' },
   openGraph: {
     title: "Frequently Asked Questions | Katie's Krops",
     description:
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/faq',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

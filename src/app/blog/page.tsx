@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: "Blog | Katie's Krops",
   description:
     "Stories from the garden and beyond. Read the latest from Katie's Krops about youth gardening, community impact, and growing for the greater good.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/blog' },
   openGraph: {
     title: "Blog | Katie's Krops",
     description:
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/blog',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

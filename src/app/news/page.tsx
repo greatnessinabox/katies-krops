@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   title: "News & Press | Katie's Krops",
   description:
     "Read the latest news, press coverage, and media features about Katie's Krops and our youth-led garden programs.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/news' },
   openGraph: {
     title: "News & Press | Katie's Krops",
     description:
@@ -23,6 +25,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/news',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

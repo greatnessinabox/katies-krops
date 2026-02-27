@@ -44,12 +44,16 @@ export async function generateMetadata({
     description:
       cls.seo?.description ||
       `Join us for ${cls.title} at Katie's Krops Outdoor Classroom.`,
+    robots: { index: true, follow: true },
+    alternates: { canonical: `/outdoor-classroom/${slug}` },
     openGraph: {
       title: cls.seo?.title || cls.title,
       description:
         cls.seo?.description ||
         `Join us for ${cls.title} at Katie's Krops Outdoor Classroom.`,
-      ...(imageUrl && { images: [{ url: imageUrl, width: 1200, height: 630 }] }),
+      ...(imageUrl
+        ? { images: [{ url: imageUrl, width: 1200, height: 630 }] }
+        : { images: [{ url: '/images/logo.png', width: 512, height: 512 }] }),
     },
   }
 }

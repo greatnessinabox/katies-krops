@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: "Katie's Krops — Growing for the Greater Good",
   description:
     "Katie's Krops empowers youth to start vegetable gardens and donate the harvest to feed people in need. Founded by Katie Stagliano in Summerville, SC.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/' },
   openGraph: {
     title: "Katie's Krops — Growing for the Greater Good",
     description:
@@ -13,6 +15,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 import { OUTDOOR_CLASSES_QUERY, SITE_SETTINGS_QUERY } from '@/sanity/lib/queries'

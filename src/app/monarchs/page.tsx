@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   title: "Team Monarch | Help Save the Monarchs | Katie's Krops",
   description:
     "Team Monarch is Katie's Krops' youth leadership and mentorship program for teens ages 13-18. Build leadership skills, earn service hours, and make a difference.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/monarchs' },
   openGraph: {
     title: "Team Monarch | Katie's Krops",
     description:
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/monarchs',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 

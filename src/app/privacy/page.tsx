@@ -4,6 +4,8 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Katie's Krops",
   description:
     "Katie's Krops privacy policy. Learn how we collect, use, and protect your personal information when using our website.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/privacy' },
   openGraph: {
     title: "Privacy Policy | Katie's Krops",
     description:
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/privacy',
     siteName: "Katie's Krops",
     type: 'website',
+    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
   },
 }
 
