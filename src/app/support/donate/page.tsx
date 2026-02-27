@@ -4,13 +4,16 @@ import { SITE_SETTINGS_QUERY } from '@/sanity/lib/queries'
 import { DonationCta } from '@/components/donation-cta'
 
 export const metadata: Metadata = {
-  title: 'Donate',
+  title: "Donate | Support Katie's Krops",
   description:
-    "Make a tax-deductible donation to Katie's Krops. Your generosity helps youth grow food and feed communities. EIN: 27-2456170.",
+    "Make a tax-deductible donation to Katie's Krops. Your generosity helps youth grow food and feed communities. 501(c)(3) EIN: 27-2456170.",
   openGraph: {
-    title: "Donate | Katie's Krops",
+    title: "Donate | Support Katie's Krops",
     description:
-      "Make a tax-deductible donation to Katie's Krops. EIN: 27-2456170.",
+      "Make a tax-deductible donation to Katie's Krops. Your generosity helps youth grow food and feed communities.",
+    url: 'https://katieskrops.com/support/donate',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

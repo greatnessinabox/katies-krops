@@ -2,13 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: "About Katie's Krops | Our Story & Mission",
   description:
-    "Learn how Katie Stagliano started Katie's Krops with a single cabbage and grew it into a movement empowering youth across 30+ states to feed their communities.",
+    "Learn how Katie Stagliano started Katie's Krops at age 9 with a single cabbage and grew it into a movement empowering youth across 30+ states.",
   openGraph: {
-    title: "About | Katie's Krops",
+    title: "About Katie's Krops | Our Story & Mission",
     description:
       "Learn how Katie Stagliano started Katie's Krops with a single cabbage and grew it into a movement empowering youth to feed their communities.",
+    url: 'https://katieskrops.com/about',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

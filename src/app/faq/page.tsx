@@ -5,13 +5,16 @@ import type { FAQ_ITEMS_QUERY_RESULT } from '@/sanity/types'
 import { FaqAccordion } from '@/components/faq-accordion'
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions',
+  title: "Frequently Asked Questions | Katie's Krops",
   description:
-    "Find answers to common questions about Katie's Krops, starting a garden, volunteering, donations, and more.",
+    "Find answers to common questions about Katie's Krops, starting a garden, volunteering, donations, and our programs.",
   openGraph: {
-    title: "FAQ | Katie's Krops",
+    title: "Frequently Asked Questions | Katie's Krops",
     description:
-      "Find answers to common questions about Katie's Krops.",
+      "Find answers to common questions about Katie's Krops, starting a garden, volunteering, and donations.",
+    url: 'https://katieskrops.com/faq',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

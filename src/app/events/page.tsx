@@ -8,13 +8,16 @@ import { urlFor } from '@/sanity/lib/image'
 import { formatDate } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'Events',
+  title: "Events | Katie's Krops",
   description:
-    "Upcoming events and gatherings at Katie's Krops. Join us for dinners, fundraisers, volunteer days, and more.",
+    "Upcoming events and gatherings at Katie's Krops. Join us for community dinners, fundraisers, volunteer days, and more in Summerville, SC.",
   openGraph: {
     title: "Events | Katie's Krops",
     description:
-      "Upcoming events and gatherings at Katie's Krops.",
+      "Upcoming events and gatherings at Katie's Krops. Join us for dinners, fundraisers, volunteer days, and more.",
+    url: 'https://katieskrops.com/events',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

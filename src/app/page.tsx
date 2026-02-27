@@ -1,5 +1,20 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { sanityFetch } from '@/sanity/lib/live'
+
+export const metadata: Metadata = {
+  title: "Katie's Krops — Growing for the Greater Good",
+  description:
+    "Katie's Krops empowers youth to start vegetable gardens and donate the harvest to feed people in need. Founded by Katie Stagliano in Summerville, SC.",
+  openGraph: {
+    title: "Katie's Krops — Growing for the Greater Good",
+    description:
+      "Youth-led nonprofit empowering kids to grow vegetable gardens and donate the harvest to feed people in need.",
+    url: 'https://katieskrops.com',
+    siteName: "Katie's Krops",
+    type: 'website',
+  },
+}
 import { OUTDOOR_CLASSES_QUERY, SITE_SETTINGS_QUERY } from '@/sanity/lib/queries'
 import type { OUTDOOR_CLASSES_QUERY_RESULT } from '@/sanity/types'
 import { ClassCard } from '@/components/class-card'

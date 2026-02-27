@@ -4,13 +4,16 @@ import { sanityFetch } from '@/sanity/lib/live'
 import { SITE_SETTINGS_QUERY } from '@/sanity/lib/queries'
 
 export const metadata: Metadata = {
-  title: 'Support',
+  title: "Support Us | Katie's Krops",
   description:
     "Support Katie's Krops with a donation, Amazon Wishlist purchase, or by spreading the word. Help us grow food and feed communities.",
   openGraph: {
-    title: "Support Katie's Krops",
+    title: "Support Us | Katie's Krops",
     description:
-      "Support Katie's Krops — donate, shop our wishlist, or spread the word.",
+      "Support Katie's Krops — donate, shop our Amazon Wishlist, or spread the word to help us grow food and feed communities.",
+    url: 'https://katieskrops.com/support',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

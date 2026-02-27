@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
+  title: "Privacy Policy | Katie's Krops",
   description:
-    "Katie's Krops privacy policy. Learn how we collect, use, and protect your personal information.",
+    "Katie's Krops privacy policy. Learn how we collect, use, and protect your personal information when using our website.",
   openGraph: {
     title: "Privacy Policy | Katie's Krops",
     description:
       "How Katie's Krops collects, uses, and protects your personal information.",
+    url: 'https://katieskrops.com/privacy',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

@@ -2,13 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Get Involved',
+  title: "Get Involved | Katie's Krops",
   description:
     "Join Katie's Krops — volunteer, start a garden, or become a grower. Help us grow food and feed communities across the country.",
   openGraph: {
     title: "Get Involved | Katie's Krops",
     description:
-      "Join Katie's Krops — volunteer, start a garden, or become a grower.",
+      "Join Katie's Krops — volunteer, start a garden, or become a grower. Help us grow food and feed communities.",
+    url: 'https://katieskrops.com/get-involved',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

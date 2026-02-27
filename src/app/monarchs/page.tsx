@@ -2,13 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Team Monarch',
+  title: "Team Monarch | Help Save the Monarchs | Katie's Krops",
   description:
     "Team Monarch is Katie's Krops' youth leadership and mentorship program for teens ages 13-18. Build leadership skills, earn service hours, and make a difference.",
   openGraph: {
     title: "Team Monarch | Katie's Krops",
     description:
       "Katie's Krops' teen leadership program. Mentorship, community service, and leadership development for ages 13-18.",
+    url: 'https://katieskrops.com/monarchs',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

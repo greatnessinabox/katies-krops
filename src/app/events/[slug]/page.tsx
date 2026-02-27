@@ -37,14 +37,29 @@ export async function generateMetadata({
     ? urlFor(event.image).width(1200).height(630).url()
     : undefined
 
+  const dateStr = event.date
+    ? new Date(event.date).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
+    : ''
+  const uniqueTitle = dateStr
+    ? `${event.title} — ${dateStr}`
+    : event.title
+  const description = dateStr
+    ? `Join us for ${event.title} on ${dateStr} at Katie's Krops.${event.location?.name ? ` At ${event.location.name}.` : ''}`
+    : `Join us for ${event.title} at Katie's Krops.`
+
   return {
-    title: event.title,
-    description:
-      `Join us for ${event.title} at Katie's Krops.`,
+    title: uniqueTitle,
+    description,
     openGraph: {
-      title: event.title || undefined,
-      description:
-        `Join us for ${event.title} at Katie's Krops.`,
+      title: `${uniqueTitle} | Katie's Krops`,
+      description,
+      url: `https://katieskrops.com/events/${slug}`,
+      siteName: "Katie's Krops",
+      type: 'website',
       ...(imageUrl && {
         images: [{ url: imageUrl, width: 1200, height: 630 }],
       }),

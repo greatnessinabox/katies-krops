@@ -2,13 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Community Dinners',
+  title: "Community Dinners | Katie's Krops",
   description:
     "Katie's Krops hosts free community dinners using fresh produce from our gardens. Join us in Summerville, SC for a meal prepared with love.",
   openGraph: {
     title: "Community Dinners | Katie's Krops",
     description:
       "Free community dinners using fresh produce from Katie's Krops gardens in Summerville, SC.",
+    url: 'https://katieskrops.com/dinners',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

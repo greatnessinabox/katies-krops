@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Gallery',
+  title: "Photo Gallery | Katie's Krops",
   description:
     "Browse photos from Katie's Krops gardens, outdoor classes, community dinners, and events. Moments of growing, learning, and giving back.",
   openGraph: {
-    title: "Gallery | Katie's Krops",
+    title: "Photo Gallery | Katie's Krops",
     description:
-      "Moments from our gardens, classes, and community at Katie's Krops.",
+      "Photos from our gardens, outdoor classes, community dinners, and events at Katie's Krops.",
+    url: 'https://katieskrops.com/gallery',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

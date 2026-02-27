@@ -25,13 +25,16 @@ interface GrowerResult {
 }
 
 export const metadata: Metadata = {
-  title: 'Our Growers',
+  title: "Our Growers | Katie's Krops",
   description:
-    "Meet the youth growers of Katie's Krops — young people across the country growing food and feeding communities.",
+    "Meet the youth growers of Katie's Krops — young people across the country growing food and feeding their communities.",
   openGraph: {
     title: "Our Growers | Katie's Krops",
     description:
-      'Youth growers across the country growing food and feeding communities.',
+      "Meet the youth growers of Katie's Krops — young people across the country growing food and feeding communities.",
+    url: 'https://katieskrops.com/get-involved/growers',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 
@@ -58,6 +61,7 @@ export default async function GrowersPage() {
       {/* Growers Grid */}
       <section className="px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <h2 className="sr-only">Grower Profiles</h2>
           {growers && growers.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {(growers as GrowerResult[]).map((grower) => (

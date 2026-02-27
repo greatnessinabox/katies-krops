@@ -8,13 +8,16 @@ import { urlFor } from '@/sanity/lib/image'
 import { formatDate } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: "Blog | Katie's Krops",
   description:
     "Stories from the garden and beyond. Read the latest from Katie's Krops about youth gardening, community impact, and growing for the greater good.",
   openGraph: {
     title: "Blog | Katie's Krops",
     description:
-      "Stories from the garden and beyond. Read the latest from Katie's Krops.",
+      "Stories from the garden and beyond. Read the latest from Katie's Krops about youth gardening and community impact.",
+    url: 'https://katieskrops.com/blog',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

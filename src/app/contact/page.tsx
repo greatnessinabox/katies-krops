@@ -2,13 +2,16 @@ import type { Metadata } from 'next'
 import { ContactForm } from './contact-form'
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: "Contact Us | Katie's Krops",
   description:
-    "Get in touch with Katie's Krops. Reach out about volunteering, starting a garden, donations, partnerships, or general questions.",
+    "Get in touch with Katie's Krops in Summerville, SC. Reach out about volunteering, starting a garden, donations, or partnerships.",
   openGraph: {
     title: "Contact Us | Katie's Krops",
     description:
       "Get in touch with Katie's Krops about volunteering, starting a garden, donations, or partnerships.",
+    url: 'https://katieskrops.com/contact',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 
@@ -144,17 +147,17 @@ export default function ContactPage() {
                 Summerville, South Carolina and are happy to help however we can.
               </p>
 
-              <dl className="mt-8 space-y-6">
+              <div className="mt-8 space-y-6">
                 {contactInfo.map((item) => (
                   <div key={item.label} className="flex gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-forest/10 text-forest">
                       {item.icon}
                     </div>
                     <div>
-                      <dt className="text-sm font-semibold text-stone-900">
+                      <p className="text-sm font-semibold text-stone-900">
                         {item.label}
-                      </dt>
-                      <dd className="mt-1 text-stone-600">
+                      </p>
+                      <p className="mt-1 text-stone-600">
                         {item.href ? (
                           <a
                             href={item.href}
@@ -167,11 +170,11 @@ export default function ContactPage() {
                             {item.value}
                           </span>
                         )}
-                      </dd>
+                      </p>
                     </div>
                   </div>
                 ))}
-              </dl>
+              </div>
 
               {/* Social Links */}
               <div className="mt-10">

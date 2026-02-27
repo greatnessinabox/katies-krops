@@ -2,13 +2,16 @@ import type { Metadata } from 'next'
 import { VolunteerForm } from '@/components/volunteer-form'
 
 export const metadata: Metadata = {
-  title: 'Volunteer With Us',
+  title: "Volunteer | Katie's Krops",
   description:
     "Volunteer with Katie's Krops in Summerville, SC. Help with community dinners, garden maintenance, outdoor classroom events, and more.",
   openGraph: {
-    title: "Volunteer With Us | Katie's Krops",
+    title: "Volunteer | Katie's Krops",
     description:
-      "Volunteer with Katie's Krops — help with dinners, gardens, and events.",
+      "Volunteer with Katie's Krops — help with community dinners, gardens, outdoor classroom events, and more.",
+    url: 'https://katieskrops.com/get-involved/volunteer',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

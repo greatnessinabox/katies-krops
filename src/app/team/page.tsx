@@ -6,13 +6,16 @@ import type { TEAM_MEMBERS_QUERY_RESULT } from '@/sanity/types'
 import { urlFor } from '@/sanity/lib/image'
 
 export const metadata: Metadata = {
-  title: 'Our Team',
+  title: "Our Team | Katie's Krops",
   description:
     "Meet the dedicated team behind Katie's Krops who work every day to empower youth gardeners and feed communities in need.",
   openGraph: {
     title: "Our Team | Katie's Krops",
     description:
       "Meet the dedicated team behind Katie's Krops who empower youth gardeners and feed communities in need.",
+    url: 'https://katieskrops.com/team',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

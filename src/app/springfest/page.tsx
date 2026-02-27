@@ -2,13 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Springfest 2026',
+  title: "Springfest | Katie's Krops",
   description:
     "Springfest is Katie's Krops' annual outdoor celebration and fundraiser. Join us April 25, 2026 in Summerville, SC for live music, food, kids' activities, and more.",
   openGraph: {
     title: "Springfest 2026 | Katie's Krops",
     description:
       "Katie's Krops annual fundraiser — live music, food, kids' activities, garden tours, and silent auction. April 25, 2026.",
+    url: 'https://katieskrops.com/springfest',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

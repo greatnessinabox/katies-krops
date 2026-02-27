@@ -22,13 +22,16 @@ type Instructor = {
 }
 
 export const metadata: Metadata = {
-  title: 'Our Instructors',
+  title: "Our Instructors | Katie's Krops",
   description:
     "Meet the educators who bring nature to life at Katie's Krops Outdoor Classroom. Our instructors lead hands-on classes in gardening, cooking, art, and nature.",
   openGraph: {
     title: "Our Instructors | Katie's Krops",
     description:
       "Meet the passionate educators behind Katie's Krops Outdoor Classroom programs.",
+    url: 'https://katieskrops.com/instructors',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 

@@ -46,10 +46,12 @@ export async function generateMetadata({
       post.excerpt ||
       `Read "${post.title}" on the Katie's Krops blog.`,
     openGraph: {
-      title: post.title || undefined,
+      title: `${post.title} | Katie's Krops`,
       description:
         post.excerpt ||
         `Read "${post.title}" on the Katie's Krops blog.`,
+      url: `https://katieskrops.com/blog/${slug}`,
+      siteName: "Katie's Krops",
       type: 'article',
       ...(post.publishedAt && { publishedTime: post.publishedAt }),
       ...(imageUrl && {

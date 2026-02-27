@@ -31,6 +31,7 @@ export function ClassCard({ ...cls }: ClassCardProps) {
       <Link
         href={`/outdoor-classroom/${slug}`}
         className="relative aspect-[3/2] overflow-hidden bg-sage-light/30"
+        aria-label={`View ${title}`}
       >
         {imageUrl ? (
           <Image

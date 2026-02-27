@@ -13,13 +13,16 @@ type NewsItem = {
 }
 
 export const metadata: Metadata = {
-  title: 'News & Press',
+  title: "News & Press | Katie's Krops",
   description:
     "Read the latest news, press coverage, and media features about Katie's Krops and our youth-led garden programs.",
   openGraph: {
     title: "News & Press | Katie's Krops",
     description:
-      "The latest news and press coverage about Katie's Krops.",
+      "The latest news and press coverage about Katie's Krops and our youth-led garden programs.",
+    url: 'https://katieskrops.com/news',
+    siteName: "Katie's Krops",
+    type: 'website',
   },
 }
 
