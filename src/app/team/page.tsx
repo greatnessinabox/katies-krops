@@ -4,6 +4,9 @@ import { sanityFetch } from '@/sanity/lib/live'
 import { TEAM_MEMBERS_QUERY } from '@/sanity/lib/queries'
 import type { TEAM_MEMBERS_QUERY_RESULT } from '@/sanity/types'
 import { urlFor } from '@/sanity/lib/image'
+import { HeroSection } from '@/components/hero-section'
+import { YouTubeEmbed } from '@/components/youtube-embed'
+import { SectionDivider } from '@/components/section-divider'
 
 export const metadata: Metadata = {
   title: 'Our Team',
@@ -31,71 +34,71 @@ export default async function TeamPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-forest px-4 py-24 sm:py-32">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-leaf)_0%,_transparent_50%)] opacity-20" />
-        <div className="relative mx-auto max-w-7xl text-center sm:px-6 lg:px-8">
-          <h1 className="font-display text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Our Team
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">
-            Meet the passionate people who make Katie&apos;s Krops possible
-            &mdash; from our founding family to the dedicated staff and
-            volunteers who help young growers thrive.
-          </p>
-        </div>
-      </section>
+      {/* ── HERO ── warm/editorial */}
+      <HeroSection
+        variant="warm"
+        kicker="Our People"
+        title="The Team Behind the Gardens"
+        highlight="Gardens"
+        accentColor="leaf"
+        subtitle="Meet the passionate people who make Katie's Krops possible — from our founding family to the dedicated staff and volunteers who help young growers thrive."
+      />
 
-      {/* Video Section */}
+      {/* ── VIDEO ── */}
       <section className="bg-cream px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-4xl sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
-              Watch Our Story
+          <div className="mb-8 text-center">
+            <p className="kicker">Watch Our Story</p>
+            <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+              See How We Grow
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-stone-600">
-              See how Katie&apos;s Krops is making a difference in communities
-              across the country.
-            </p>
           </div>
-          <div className="mt-10 overflow-hidden rounded-2xl shadow-lg">
-            <div className="relative aspect-video">
-              <iframe
-                src="https://www.youtube.com/embed/8OllB3YQALE"
-                title="Katie's Krops Story"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full"
-                loading="lazy"
-              />
-            </div>
-          </div>
+          <YouTubeEmbed
+            videoId="8OllB3YQALE"
+            title="Katie's Krops Story"
+          />
         </div>
       </section>
 
-      {/* Team Grid */}
+      <SectionDivider variant="wave" fill="white" />
+
+      {/* ── TEAM GRID ── */}
       <section className="px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
           {teamMembers.length > 0 ? (
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {teamMembers.map((member) => (
+              {teamMembers.map((member, index) => (
                 <div
                   key={member._id}
-                  className="rounded-2xl border border-border bg-white shadow-sm transition-shadow hover:shadow-md"
+                  className={`card-lifted overflow-hidden ${
+                    index === 0
+                      ? 'sm:col-span-2 sm:grid sm:grid-cols-2 sm:gap-0 lg:col-span-2'
+                      : ''
+                  }`}
                 >
                   {/* Photo */}
                   {member.image?.asset?.url ? (
-                    <div className="relative aspect-square overflow-hidden rounded-t-2xl bg-sage-light/20">
+                    <div
+                      className={`relative overflow-hidden bg-sage-light/20 ${
+                        index === 0
+                          ? 'aspect-square sm:aspect-auto sm:h-full'
+                          : 'aspect-square'
+                      }`}
+                    >
                       <Image
                         src={urlFor(member.image)
-                          .width(400)
-                          .height(400)
+                          .width(index === 0 ? 600 : 400)
+                          .height(index === 0 ? 600 : 400)
                           .auto('format')
                           .url()}
                         alt={member.image.alt || member.name || 'Team member'}
                         fill
-                        className="object-cover"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 hover:scale-105"
+                        sizes={
+                          index === 0
+                            ? '(max-width: 640px) 100vw, 50vw'
+                            : '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                        }
                         placeholder={
                           member.image.asset.metadata?.lqip
                             ? 'blur'
@@ -107,7 +110,7 @@ export default async function TeamPage() {
                       />
                     </div>
                   ) : (
-                    <div className="flex aspect-square items-center justify-center rounded-t-2xl bg-sage-light/30">
+                    <div className="flex aspect-square items-center justify-center bg-sage-light/30">
                       <svg
                         className="h-16 w-16 text-sage"
                         fill="none"
@@ -126,8 +129,15 @@ export default async function TeamPage() {
                   )}
 
                   {/* Info */}
-                  <div className="p-6">
-                    <h2 className="font-display text-xl font-bold text-stone-900">
+                  <div className={`p-6 ${index === 0 ? 'flex flex-col justify-center sm:p-8' : ''}`}>
+                    {index === 0 && (
+                      <p className="kicker mb-2">Founder</p>
+                    )}
+                    <h2
+                      className={`font-display font-bold text-stone-900 ${
+                        index === 0 ? 'text-2xl sm:text-3xl' : 'text-xl'
+                      }`}
+                    >
                       {member.name}
                     </h2>
                     {member.role && (
@@ -136,7 +146,11 @@ export default async function TeamPage() {
                       </p>
                     )}
                     {member.bio && (
-                      <p className="mt-3 text-sm leading-relaxed text-stone-600">
+                      <p
+                        className={`mt-3 leading-relaxed text-stone-600 ${
+                          index === 0 ? 'text-base' : 'text-sm'
+                        }`}
+                      >
                         {member.bio}
                       </p>
                     )}
@@ -171,9 +185,9 @@ export default async function TeamPage() {
         </div>
       </section>
 
-      {/* Join the Team CTA */}
-      <section className="bg-sage-light/30 px-4 py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+      {/* ── JOIN CTA ── */}
+      <section className="texture-paper relative bg-cream px-4 py-16 sm:py-20">
+        <div className="relative z-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
               Want to Make a Difference?

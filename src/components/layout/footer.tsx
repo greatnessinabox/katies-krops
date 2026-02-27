@@ -39,8 +39,8 @@ const footerNav = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-forest-dark text-stone-200">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="texture-grain relative bg-forest-dark text-stone-200">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand Column */}
           <div className="lg:col-span-2">
