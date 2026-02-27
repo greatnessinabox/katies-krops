@@ -232,11 +232,12 @@ a[role="button"]:active,
 .stat-hero {
   font-family: var(--font-display), Georgia, serif;
   font-weight: 700;
-  font-size: clamp(2rem, 5vw, 5.5rem);
+  font-size: clamp(1.75rem, 4vw, 5rem);
   line-height: 1;
   letter-spacing: -0.025em;
   overflow-wrap: break-word;
   word-break: break-word;
+  white-space: nowrap;
 }
 
 /* Kicker — small uppercase label */

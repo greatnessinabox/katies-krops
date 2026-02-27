@@ -72,7 +72,7 @@ export default async function HomePage() {
       {stats.length > 0 && (
         <section className="texture-grain relative bg-forest-dark px-4 py-16 sm:py-20">
           <div className="relative z-10 mx-auto max-w-6xl">
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4">
               {stats.map(
                 (stat: { label?: string; value?: string }, i: number) => (
                   <div

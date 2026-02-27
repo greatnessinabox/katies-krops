@@ -155,7 +155,13 @@ function AccordionItem({
         <div ref={contentRef} className="px-6 pb-6">
           <div className="prose prose-stone max-w-none text-stone-600 prose-p:leading-relaxed">
             {item.answer ? (
-              <PortableText value={item.answer} />
+              typeof item.answer === 'string' ? (
+                <p>{item.answer}</p>
+              ) : Array.isArray(item.answer) ? (
+                <PortableText value={item.answer} />
+              ) : (
+                <p>No answer provided yet.</p>
+              )
             ) : (
               <p>No answer provided yet.</p>
             )}

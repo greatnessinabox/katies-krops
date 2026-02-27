@@ -45,6 +45,19 @@ export const metadata: Metadata = {
   },
 }
 
+/* Local images downloaded from original katieskrops.com — used when Sanity
+   grower docs don't have an image asset uploaded yet. */
+const localImages: Record<string, string> = {
+  'Ramona': '/images/growers/ramona.webp',
+  'Isaiah & Grace': '/images/growers/isaiah-grace.webp',
+  'Joseph': '/images/growers/joseph.webp',
+  'Olivier': '/images/growers/olivier.webp',
+  'Landrum Middle School': '/images/growers/landrum.webp',
+  'Selena': '/images/growers/selena.jpg',
+  'Ari': '/images/growers/ari.webp',
+  'Beech Hill Elementary': '/images/growers/beech-hill.webp',
+}
+
 export default async function GrowersPage() {
   const { data: growers } = await sanityFetch({
     query: GROWERS_QUERY,
@@ -77,24 +90,28 @@ export default async function GrowersPage() {
           <h2 className="sr-only">Grower Profiles</h2>
           {growers && growers.length > 0 ? (
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {(growers as GrowerResult[]).map((grower, i) => (
+              {(growers as GrowerResult[]).map((grower, i) => {
+                const sanityImgUrl = grower.image?.asset?.url
+                  ? urlFor(grower.image).width(600).height(450).url()
+                  : null
+                const localImg = grower.name ? localImages[grower.name] : null
+                const imgSrc = sanityImgUrl || localImg
+
+                return (
                 <div
                   key={grower._id}
                   className="card-lifted animate-fade-up overflow-hidden"
                   style={{ '--delay': `${i * 80}ms` } as React.CSSProperties}
                 >
-                  {grower.image?.asset?.url ? (
+                  {imgSrc ? (
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <Image
-                        src={urlFor(grower.image)
-                          .width(600)
-                          .height(450)
-                          .url()}
+                        src={imgSrc}
                         alt={grower.image?.alt || grower.name || 'Grower photo'}
                         fill
                         className="object-cover transition-transform duration-500 hover:scale-105"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                        {...(grower.image.asset?.metadata?.lqip
+                        {...(grower.image?.asset?.metadata?.lqip
                           ? {
                               placeholder: 'blur' as const,
                               blurDataURL: grower.image.asset.metadata.lqip,
@@ -134,7 +151,8 @@ export default async function GrowersPage() {
                     )}
                   </div>
                 </div>
-              ))}
+                )
+              })}
             </div>
           ) : (
             <div className="py-16 text-center">
