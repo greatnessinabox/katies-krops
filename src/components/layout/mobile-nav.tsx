@@ -23,7 +23,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
       {/* Hamburger Button */}
       <button
         onClick={toggle}
-        className="relative z-50 flex h-11 w-11 items-center justify-center rounded-lg text-stone-700 transition-colors hover:bg-sage-light/40"
+        className="relative z-[70] flex h-11 w-11 items-center justify-center rounded-lg text-stone-700 transition-colors hover:bg-sage-light/40"
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
@@ -61,8 +61,17 @@ export function MobileNav({ items }: { items: NavItem[] }) {
         }`}
         aria-label="Mobile navigation"
       >
-        <div className="flex h-16 items-center border-b border-border px-6">
+        <div className="flex h-16 items-center justify-between border-b border-border px-6">
           <span className="font-display text-lg font-bold text-forest-dark">Menu</span>
+          <button
+            onClick={close}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-stone-500 transition-colors hover:bg-sage-light/40 hover:text-stone-700"
+            aria-label="Close menu"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
         <div className="flex flex-1 flex-col gap-1 overflow-y-auto p-4">
           {items.map((item) =>

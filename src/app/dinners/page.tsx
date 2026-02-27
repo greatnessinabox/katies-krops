@@ -64,7 +64,7 @@ export default function DinnersPage() {
       {/* ── HERO ── */}
       <HeroSection
         variant="forest"
-        kicker="Every Other Tuesday"
+        kicker="Free &amp; Open to All"
         title="Community Dinners"
         highlight="Dinners"
         accentColor="sun"
@@ -113,8 +113,11 @@ export default function DinnersPage() {
                     Dinner Schedule
                   </h2>
                   <p className="mt-2 text-lg text-stone-600">
-                    Dinners are held every other Tuesday from{' '}
+                    Dinners are held monthly from{' '}
                     <strong className="text-stone-800">5:30 &ndash; 7:00 PM</strong>
+                  </p>
+                  <p className="mt-1 text-sm text-stone-500">
+                    Check our <a href="/events" className="font-medium text-forest underline decoration-forest/30 underline-offset-2 hover:decoration-forest">events page</a> for upcoming dates.
                   </p>
                 </div>
               </div>

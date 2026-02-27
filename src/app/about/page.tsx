@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { HeroSection } from '@/components/hero-section'
 import { LeafDivider } from '@/components/leaf-divider'
@@ -41,46 +42,72 @@ export default function AboutPage() {
         subtitle="What started with one young girl and a single cabbage has grown into a nationwide movement of youth-led gardens feeding communities in need."
       />
 
-      {/* ── KATIE'S STORY ── */}
+      {/* ── KATIE'S STORY — text + image side by side ── */}
       <section className="px-4 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <p className="kicker">The Beginning</p>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
-              Katie&apos;s Story
-            </h2>
-            <div className="mt-8 space-y-6 text-lg leading-relaxed text-stone-600">
-              <p>
-                In 2008, nine-year-old Katie Stagliano brought home a tiny
-                cabbage seedling from her school&apos;s Bonnie Plants Third
-                Grade Cabbage Program. She tended it carefully in her backyard
-                garden in Summerville, South Carolina, watching it grow day after
-                day.
-              </p>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            {/* Text */}
+            <div>
+              <p className="kicker">The Beginning</p>
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+                Katie&apos;s Story
+              </h2>
+              <div className="mt-8 space-y-6 text-lg leading-relaxed text-stone-600">
+                <p>
+                  In 2008, nine-year-old Katie Stagliano brought home a tiny
+                  cabbage seedling from her school&apos;s Bonnie Plants Third
+                  Grade Cabbage Program. She tended it carefully in her backyard
+                  garden in Summerville, South Carolina, watching it grow day
+                  after day.
+                </p>
+                <p>
+                  Katie decided to donate her cabbage to Tri-County Family
+                  Ministries, a soup kitchen in North Charleston. That single
+                  cabbage, combined with other vegetables, helped feed 275
+                  people.
+                </p>
+              </div>
+
+              {/* Pull quote */}
+              <blockquote className="pull-quote">
+                That little seedling grew into a 40-pound cabbage &mdash; and
+                helped feed 275 people at a local soup kitchen. One cabbage.
+                275 lives touched.
+              </blockquote>
             </div>
 
-            {/* Pull quote — the moment that changed everything */}
-            <blockquote className="pull-quote">
-              That little seedling grew into a 40-pound cabbage &mdash; and
-              helped feed 275 people at a local soup kitchen. One cabbage.
-              275 lives touched.
-            </blockquote>
-
-            <div className="space-y-6 text-lg leading-relaxed text-stone-600">
-              <p>
-                Katie decided to donate her cabbage to Tri-County Family
-                Ministries, a soup kitchen in North Charleston. That single
-                cabbage, combined with other vegetables, helped feed 275 people.
-              </p>
-              <p>
-                Seeing the impact one vegetable garden could have on her
-                community, Katie was inspired to do more. She started planting
-                additional gardens and donating all of the harvest. Word spread,
-                and other young people wanted to do the same. In 2009,
-                Katie&apos;s Krops was officially founded to empower youth across
-                the country to start their own gardens and feed those in need.
-              </p>
+            {/* Image — Katie with harvest basket */}
+            <div className="relative">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-stone-900/5">
+                <Image
+                  src="/images/about/garden-hero.webp"
+                  alt="Katie Stagliano holding a basket of fresh produce from her garden"
+                  width={800}
+                  height={800}
+                  className="h-auto w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+              {/* Decorative accent */}
+              <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl bg-sage-light/30" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOUNDING STORY CONTINUED ── */}
+      <section className="px-4 pb-20 sm:pb-28">
+        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl space-y-6 text-lg leading-relaxed text-stone-600">
+            <p>
+              Seeing the impact one vegetable garden could have on her
+              community, Katie was inspired to do more. She started planting
+              additional gardens and donating all of the harvest. Word spread,
+              and other young people wanted to do the same. In 2009,
+              Katie&apos;s Krops was officially founded to empower youth across
+              the country to start their own gardens and feed those in need.
+            </p>
           </div>
         </div>
       </section>
@@ -139,29 +166,102 @@ export default function AboutPage() {
       {/* ── Transition back to light ── */}
       <SectionDivider variant="organic" fill="white" flip />
 
-      {/* ── MOTHER-DAUGHTER PARTNERSHIP ── */}
+      {/* ── MOTHER-DAUGHTER — image left, text right ── */}
       <section className="px-4 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <p className="kicker">A Family Effort</p>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
-              Rooted in Service
-            </h2>
-            <div className="mt-8 space-y-6 text-lg leading-relaxed text-stone-600">
-              <p>
-                From the very beginning, Katie&apos;s mother Stacy Stagliano has
-                been by her side &mdash; helping tend the gardens, driving
-                produce to donation sites, and building the organizational
-                foundation that allows Katie&apos;s Krops to thrive today.
-              </p>
-              <p>
-                Together, this mother-daughter team has turned a backyard project
-                into a nationally recognized nonprofit with more than 100 gardens
-                across the country. Stacy&apos;s tireless dedication behind the
-                scenes and Katie&apos;s passion for feeding the hungry have
-                created a model for youth-led community service that continues to
-                inspire families everywhere.
-              </p>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            {/* Image collage */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-stone-900/5">
+                <Image
+                  src="/images/about/katie-portrait.webp"
+                  alt="Katie and Stacy Stagliano serving at a community dinner"
+                  width={600}
+                  height={750}
+                  className="h-full w-full object-cover"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+              <div className="mt-8 overflow-hidden rounded-2xl shadow-lg ring-1 ring-stone-900/5">
+                <Image
+                  src="/images/about/garden-scene.webp"
+                  alt="Katie and Stacy Stagliano in the garden"
+                  width={600}
+                  height={450}
+                  className="h-full w-full object-cover"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+            </div>
+
+            {/* Text */}
+            <div>
+              <p className="kicker">A Family Effort</p>
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+                Rooted in Service
+              </h2>
+              <div className="mt-8 space-y-6 text-lg leading-relaxed text-stone-600">
+                <p>
+                  From the very beginning, Katie&apos;s mother Stacy Stagliano
+                  has been by her side &mdash; helping tend the gardens, driving
+                  produce to donation sites, and building the organizational
+                  foundation that allows Katie&apos;s Krops to thrive today.
+                </p>
+                <p>
+                  Together, this mother-daughter team has turned a backyard
+                  project into a nationally recognized nonprofit with more than
+                  100 gardens across the country. Stacy&apos;s tireless
+                  dedication behind the scenes and Katie&apos;s passion for
+                  feeding the hungry have created a model for youth-led
+                  community service that continues to inspire families
+                  everywhere.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── RECOGNITION + VOLUNTEERS ── */}
+      <section className="bg-cream px-4 py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <p className="kicker">Recognition</p>
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+                A Growing Legacy
+              </h2>
+              <div className="mt-8 space-y-6 text-lg leading-relaxed text-stone-600">
+                <p>
+                  Katie&apos;s story has inspired millions. She&apos;s been
+                  recognized by the Clinton Global Initiative, named a CNN Hero,
+                  and featured on national media outlets. But for Katie, the real
+                  reward is seeing the impact in her own community and in the
+                  communities of growers across the country.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-stone-900/5">
+                <Image
+                  src="/images/about/volunteers.webp"
+                  alt="Katie and Stacy receiving an award at the Clinton Global Initiative"
+                  width={500}
+                  height={625}
+                  className="h-full w-full object-cover"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+              <div className="mt-8 overflow-hidden rounded-2xl shadow-lg ring-1 ring-stone-900/5">
+                <Image
+                  src="/images/about/volunteer-bg.webp"
+                  alt="Katie's Krops volunteer team"
+                  width={600}
+                  height={400}
+                  className="h-full w-full object-cover"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
             </div>
           </div>
         </div>
