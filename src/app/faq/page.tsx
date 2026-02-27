@@ -5,9 +5,9 @@ import type { FAQ_ITEMS_QUERY_RESULT } from '@/sanity/types'
 import { FaqAccordion } from '@/components/faq-accordion'
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions | Katie's Krops",
+  title: 'Frequently Asked Questions',
   description:
-    "Find answers to common questions about Katie's Krops, starting a garden, volunteering, donations, and our programs.",
+    "Find answers to common questions about Katie's Krops, including starting a garden, volunteering, making donations, and joining our youth programs.",
   robots: { index: true, follow: true },
   alternates: { canonical: '/faq' },
   openGraph: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/faq',
     siteName: "Katie's Krops",
     type: 'website',
-    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
+    images: [{ url: '/images/og-default.png', width: 1200, height: 630, alt: "Katie's Krops — Growing for the Greater Good" }],
   },
 }
 

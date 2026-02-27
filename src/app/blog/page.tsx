@@ -8,7 +8,7 @@ import { urlFor } from '@/sanity/lib/image'
 import { formatDate } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: "Blog | Katie's Krops",
+  title: 'Blog',
   description:
     "Stories from the garden and beyond. Read the latest from Katie's Krops about youth gardening, community impact, and growing for the greater good.",
   robots: { index: true, follow: true },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/blog',
     siteName: "Katie's Krops",
     type: 'website',
-    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
+    images: [{ url: '/images/og-default.png', width: 1200, height: 630, alt: "Katie's Krops — Growing for the Greater Good" }],
   },
 }
 

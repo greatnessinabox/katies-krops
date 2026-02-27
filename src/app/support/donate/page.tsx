@@ -4,7 +4,7 @@ import { SITE_SETTINGS_QUERY } from '@/sanity/lib/queries'
 import { DonationCta } from '@/components/donation-cta'
 
 export const metadata: Metadata = {
-  title: "Donate | Support Katie's Krops",
+  title: 'Donate',
   description:
     "Make a tax-deductible donation to Katie's Krops. Your generosity helps youth grow food and feed communities. 501(c)(3) EIN: 27-2456170.",
   robots: { index: true, follow: true },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/support/donate',
     siteName: "Katie's Krops",
     type: 'website',
-    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
+    images: [{ url: '/images/og-default.png', width: 1200, height: 630, alt: "Katie's Krops — Growing for the Greater Good" }],
   },
 }
 

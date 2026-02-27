@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Get Involved | Katie's Krops",
+  title: 'Get Involved',
   description:
     "Join Katie's Krops — volunteer, start a garden, or become a grower. Help us grow food and feed communities across the country.",
   robots: { index: true, follow: true },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/get-involved',
     siteName: "Katie's Krops",
     type: 'website',
-    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
+    images: [{ url: '/images/og-default.png', width: 1200, height: 630, alt: "Katie's Krops — Growing for the Greater Good" }],
   },
 }
 

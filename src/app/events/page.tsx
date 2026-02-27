@@ -8,7 +8,7 @@ import { urlFor } from '@/sanity/lib/image'
 import { formatDate } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: "Events | Katie's Krops",
+  title: 'Events',
   description:
     "Upcoming events and gatherings at Katie's Krops. Join us for community dinners, fundraisers, volunteer days, and more in Summerville, SC.",
   robots: { index: true, follow: true },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/events',
     siteName: "Katie's Krops",
     type: 'website',
-    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
+    images: [{ url: '/images/og-default.png', width: 1200, height: 630, alt: "Katie's Krops — Growing for the Greater Good" }],
   },
 }
 

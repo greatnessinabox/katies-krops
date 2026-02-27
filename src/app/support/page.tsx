@@ -4,7 +4,7 @@ import { sanityFetch } from '@/sanity/lib/live'
 import { SITE_SETTINGS_QUERY } from '@/sanity/lib/queries'
 
 export const metadata: Metadata = {
-  title: "Support Us | Katie's Krops",
+  title: 'Support Us',
   description:
     "Support Katie's Krops with a donation, Amazon Wishlist purchase, or by spreading the word. Help us grow food and feed communities.",
   robots: { index: true, follow: true },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/support',
     siteName: "Katie's Krops",
     type: 'website',
-    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
+    images: [{ url: '/images/og-default.png', width: 1200, height: 630, alt: "Katie's Krops — Growing for the Greater Good" }],
   },
 }
 

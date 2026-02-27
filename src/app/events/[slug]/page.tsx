@@ -44,7 +44,11 @@ export async function generateMetadata({
         year: 'numeric',
       })
     : ''
-  const uniqueTitle = dateStr
+  // Use just the event title for the meta title to stay under 43 chars with template
+  const metaTitle = event.title && event.title.length > 43
+    ? event.title.slice(0, 40) + '...'
+    : event.title
+  const fullTitle = dateStr
     ? `${event.title} — ${dateStr}`
     : event.title
   const description = dateStr
@@ -52,19 +56,19 @@ export async function generateMetadata({
     : `Join us for ${event.title} at Katie's Krops.`
 
   return {
-    title: uniqueTitle,
+    title: metaTitle,
     description,
     robots: { index: true, follow: true },
     alternates: { canonical: `/events/${slug}` },
     openGraph: {
-      title: `${uniqueTitle} | Katie's Krops`,
+      title: `${fullTitle} | Katie's Krops`,
       description,
       url: `https://katieskrops.com/events/${slug}`,
       siteName: "Katie's Krops",
       type: 'website',
       ...(imageUrl
         ? { images: [{ url: imageUrl, width: 1200, height: 630 }] }
-        : { images: [{ url: '/images/logo.png', width: 512, height: 512 }] }),
+        : { images: [{ url: '/images/og-default.png', width: 1200, height: 630 }] }),
     },
   }
 }

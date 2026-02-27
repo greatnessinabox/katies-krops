@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Katie's Krops",
+  title: 'Privacy Policy',
   description:
-    "Katie's Krops privacy policy. Learn how we collect, use, and protect your personal information when using our website.",
+    "Katie's Krops privacy policy. Learn how we collect, use, and protect your personal information when you visit our website and use our services.",
   robots: { index: true, follow: true },
   alternates: { canonical: '/privacy' },
   openGraph: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/privacy',
     siteName: "Katie's Krops",
     type: 'website',
-    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
+    images: [{ url: '/images/og-default.png', width: 1200, height: 630, alt: "Katie's Krops — Growing for the Greater Good" }],
   },
 }
 

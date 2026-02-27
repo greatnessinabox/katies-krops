@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Photo Gallery | Katie's Krops",
+  title: 'Photo Gallery',
   description:
     "Browse photos from Katie's Krops gardens, outdoor classes, community dinners, and events. Moments of growing, learning, and giving back.",
   robots: { index: true, follow: true },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/gallery',
     siteName: "Katie's Krops",
     type: 'website',
-    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
+    images: [{ url: '/images/og-default.png', width: 1200, height: 630, alt: "Katie's Krops — Growing for the Greater Good" }],
   },
 }
 

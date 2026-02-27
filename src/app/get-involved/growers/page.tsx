@@ -25,7 +25,7 @@ interface GrowerResult {
 }
 
 export const metadata: Metadata = {
-  title: "Our Growers | Katie's Krops",
+  title: 'Our Growers',
   description:
     "Meet the youth growers of Katie's Krops — young people across the country growing food and feeding their communities.",
   robots: { index: true, follow: true },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/get-involved/growers',
     siteName: "Katie's Krops",
     type: 'website',
-    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
+    images: [{ url: '/images/og-default.png', width: 1200, height: 630, alt: "Katie's Krops — Growing for the Greater Good" }],
   },
 }
 

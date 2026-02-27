@@ -40,8 +40,12 @@ export async function generateMetadata({
     ? urlFor(post.image).width(1200).height(630).url()
     : undefined
 
+  const truncatedTitle = post.title && post.title.length > 50
+    ? post.title.slice(0, 47) + '...'
+    : post.title
+
   return {
-    title: post.title,
+    title: truncatedTitle,
     description:
       post.excerpt ||
       `Read "${post.title}" on the Katie's Krops blog.`,
@@ -58,7 +62,7 @@ export async function generateMetadata({
       ...(post.publishedAt && { publishedTime: post.publishedAt }),
       ...(imageUrl
         ? { images: [{ url: imageUrl, width: 1200, height: 630 }] }
-        : { images: [{ url: '/images/logo.png', width: 512, height: 512 }] }),
+        : { images: [{ url: '/images/og-default.png', width: 1200, height: 630 }] }),
     },
   }
 }

@@ -39,8 +39,13 @@ export async function generateMetadata({
     ? urlFor(cls.image).width(1200).height(630).url()
     : undefined
 
+  const rawTitle = cls.seo?.title || cls.title || ''
+  const metaTitle = rawTitle.length > 43
+    ? rawTitle.slice(0, 40) + '...'
+    : rawTitle
+
   return {
-    title: cls.seo?.title || cls.title,
+    title: metaTitle,
     description:
       cls.seo?.description ||
       `Join us for ${cls.title} at Katie's Krops Outdoor Classroom.`,
@@ -53,7 +58,7 @@ export async function generateMetadata({
         `Join us for ${cls.title} at Katie's Krops Outdoor Classroom.`,
       ...(imageUrl
         ? { images: [{ url: imageUrl, width: 1200, height: 630 }] }
-        : { images: [{ url: '/images/logo.png', width: 512, height: 512 }] }),
+        : { images: [{ url: '/images/og-default.png', width: 1200, height: 630 }] }),
     },
   }
 }

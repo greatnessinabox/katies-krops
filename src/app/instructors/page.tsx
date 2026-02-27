@@ -22,7 +22,7 @@ type Instructor = {
 }
 
 export const metadata: Metadata = {
-  title: "Our Instructors | Katie's Krops",
+  title: 'Our Instructors',
   description:
     "Meet the educators who bring nature to life at Katie's Krops Outdoor Classroom. Our instructors lead hands-on classes in gardening, cooking, art, and nature.",
   robots: { index: true, follow: true },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     url: 'https://katieskrops.com/instructors',
     siteName: "Katie's Krops",
     type: 'website',
-    images: [{ url: '/images/logo.png', width: 512, height: 512, alt: "Katie's Krops logo" }],
+    images: [{ url: '/images/og-default.png', width: 1200, height: 630, alt: "Katie's Krops — Growing for the Greater Good" }],
   },
 }
 
