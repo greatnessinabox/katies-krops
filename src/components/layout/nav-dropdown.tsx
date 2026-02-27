@@ -50,7 +50,7 @@ export function NavDropdown({ item }: { item: NavItem }) {
       >
         {item.label}
         <svg
-          className={`h-3.5 w-3.5 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={2}
@@ -61,9 +61,17 @@ export function NavDropdown({ item }: { item: NavItem }) {
         </svg>
       </button>
 
+      {/* Invisible bridge to fill hover gap between trigger and dropdown */}
       {isOpen && (
         <div
-          className="absolute left-1/2 top-full z-50 mt-1 w-72 -translate-x-1/2 rounded-xl border border-border bg-white p-2 shadow-lg"
+          className="absolute left-0 top-full z-40 h-2 w-full"
+          onMouseEnter={open}
+        />
+      )}
+
+      {isOpen && (
+        <div
+          className="absolute left-1/2 top-full z-50 mt-2 w-72 -translate-x-1/2 animate-dropdown-in rounded-xl border border-border bg-white p-2 shadow-lg"
           onMouseEnter={open}
           onMouseLeave={close}
           role="menu"

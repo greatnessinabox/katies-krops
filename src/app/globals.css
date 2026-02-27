@@ -97,6 +97,7 @@
 
 .skip-to-content:focus {
   top: 0;
+  transition: top 0.2s ease;
 }
 
 body {
@@ -116,4 +117,56 @@ html {
 ::selection {
   background: var(--color-sage);
   color: var(--color-forest-dark);
+}
+
+/* Button active state — physics feedback */
+button,
+a[role="button"],
+[type="button"],
+[type="submit"],
+[type="reset"] {
+  transition: transform 150ms ease-out;
+}
+
+button:active,
+a[role="button"]:active,
+[type="button"]:active,
+[type="submit"]:active,
+[type="reset"]:active {
+  transform: scale(0.97);
+}
+
+/* Dropdown entrance animation */
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.animate-dropdown-in {
+  animation: dropdown-in 150ms ease-out;
+}
+
+/* Reduced motion — respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Preserve opacity transitions for fade-based UI state */
+  [style*="opacity"],
+  .transition-opacity {
+    transition-property: opacity;
+    transition-duration: 150ms !important;
+  }
 }

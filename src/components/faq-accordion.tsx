@@ -112,7 +112,7 @@ function AccordionItem({
         role="region"
         aria-labelledby={buttonId}
         style={{ height }}
-        className="overflow-hidden transition-[height] duration-200 ease-in-out"
+        className={`overflow-hidden transition-[height] duration-200 ${isOpen ? 'ease-out' : 'ease-in'}`}
       >
         <div ref={contentRef} className="px-6 pb-5">
           <div className="prose prose-stone max-w-none text-stone-600 prose-p:leading-relaxed">
