@@ -47,7 +47,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 bg-stone-900/30 backdrop-blur-sm"
+          className="fixed inset-0 z-[60] bg-stone-900/30 backdrop-blur-sm"
           onClick={close}
           aria-hidden="true"
         />
@@ -56,7 +56,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
       {/* Slide-out Panel */}
       <nav
         id="mobile-menu"
-        className={`fixed right-0 top-0 z-40 flex h-full w-72 flex-col bg-cream shadow-2xl transition-transform duration-300 ${
+        className={`fixed right-0 top-0 z-[60] flex h-full w-72 flex-col bg-cream shadow-2xl transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         aria-label="Mobile navigation"

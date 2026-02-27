@@ -37,14 +37,31 @@ export function FaqAccordion({ categories }: FaqAccordionProps) {
     <div className="space-y-12">
       {categories.map((category) => (
         <section key={category.name}>
-          <h2 className="mb-6 font-display text-2xl font-bold text-stone-900">
-            {category.label}
-          </h2>
-          <div className="divide-y divide-border rounded-2xl border border-border bg-white shadow-sm">
-            {category.items.map((item) => (
+          <div className="mb-6 flex items-center gap-3">
+            <svg
+              className="h-6 w-6 text-forest"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"
+              />
+            </svg>
+            <h2 className="font-display text-2xl font-bold text-stone-900">
+              {category.label}
+            </h2>
+          </div>
+          <div className="space-y-3">
+            {category.items.map((item, index) => (
               <AccordionItem
                 key={item._id}
                 item={item}
+                index={index}
                 isOpen={openItems[category.name] === item._id}
                 onToggle={() => toggleItem(category.name, item._id)}
               />
@@ -58,10 +75,12 @@ export function FaqAccordion({ categories }: FaqAccordionProps) {
 
 function AccordionItem({
   item,
+  index,
   isOpen,
   onToggle,
 }: {
   item: FaqItem
+  index: number
   isOpen: boolean
   onToggle: () => void
 }) {
@@ -77,8 +96,18 @@ function AccordionItem({
   const panelId = `faq-panel-${item._id}`
   const buttonId = `faq-button-${item._id}`
 
+  // Alternating green / gold accent
+  const isEven = index % 2 === 0
+  const accentBorder = isEven ? 'border-l-forest' : 'border-l-sun'
+  const hoverBg = isEven ? 'hover:bg-forest/5' : 'hover:bg-sun/5'
+  const iconColor = isEven ? 'text-forest' : 'text-sun-dark'
+
   return (
-    <div>
+    <div
+      className={`overflow-hidden rounded-xl border border-border bg-white shadow-sm transition-shadow hover:shadow-md ${
+        isOpen ? `border-l-4 ${accentBorder}` : ''
+      }`}
+    >
       <h3>
         <button
           id={buttonId}
@@ -86,25 +115,34 @@ function AccordionItem({
           onClick={onToggle}
           aria-expanded={isOpen}
           aria-controls={panelId}
-          className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-sage-light/10"
+          className={`flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors ${hoverBg}`}
         >
           <span className="font-display text-base font-semibold text-stone-900 sm:text-lg">
             {item.question}
           </span>
-          <svg
-            className={`h-5 w-5 shrink-0 text-stone-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
+          {/* Plus / Minus icon */}
+          <span
+            className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors ${
+              isOpen
+                ? `${isEven ? 'bg-forest' : 'bg-sun'} text-white`
+                : `${isEven ? 'bg-forest/10' : 'bg-sun/10'} ${iconColor}`
+            }`}
             aria-hidden="true"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+            >
+              {isOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m-7-7h14" />
+              )}
+            </svg>
+          </span>
         </button>
       </h3>
       <div
@@ -114,7 +152,7 @@ function AccordionItem({
         style={{ height }}
         className={`overflow-hidden transition-[height] duration-200 ${isOpen ? 'ease-out' : 'ease-in'}`}
       >
-        <div ref={contentRef} className="px-6 pb-5">
+        <div ref={contentRef} className="px-6 pb-6">
           <div className="prose prose-stone max-w-none text-stone-600 prose-p:leading-relaxed">
             {item.answer ? (
               <PortableText value={item.answer} />

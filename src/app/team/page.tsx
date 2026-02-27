@@ -46,6 +46,33 @@ export default async function TeamPage() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="bg-cream px-4 py-16 sm:py-20">
+        <div className="mx-auto max-w-4xl sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+              Watch Our Story
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-stone-600">
+              See how Katie&apos;s Krops is making a difference in communities
+              across the country.
+            </p>
+          </div>
+          <div className="mt-10 overflow-hidden rounded-2xl shadow-lg">
+            <div className="relative aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/8OllB3YQALE"
+                title="Katie's Krops Story"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Team Grid */}
       <section className="px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -58,11 +85,11 @@ export default async function TeamPage() {
                 >
                   {/* Photo */}
                   {member.image?.asset?.url ? (
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
+                    <div className="relative aspect-square overflow-hidden rounded-t-2xl bg-sage-light/20">
                       <Image
                         src={urlFor(member.image)
-                          .width(600)
-                          .height(450)
+                          .width(400)
+                          .height(400)
                           .auto('format')
                           .url()}
                         alt={member.image.alt || member.name || 'Team member'}
@@ -80,7 +107,7 @@ export default async function TeamPage() {
                       />
                     </div>
                   ) : (
-                    <div className="flex aspect-[4/3] items-center justify-center rounded-t-2xl bg-sage-light/30">
+                    <div className="flex aspect-square items-center justify-center rounded-t-2xl bg-sage-light/30">
                       <svg
                         className="h-16 w-16 text-sage"
                         fill="none"

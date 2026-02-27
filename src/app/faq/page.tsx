@@ -25,8 +25,12 @@ const categoryConfig: Record<string, string> = {
   general: 'General',
   'outdoor-classroom': 'Outdoor Classroom',
   volunteering: 'Volunteering',
-  donations: 'Donations',
+  donations: 'Donations & Support',
   grants: 'Grants',
+  programs: 'Programs',
+  gardens: 'Gardens',
+  support: 'Donations & Support',
+  volunteer: 'Volunteering',
 }
 
 export default async function FaqPage() {
@@ -49,9 +53,13 @@ export default async function FaqPage() {
   // Build ordered categories
   const categoryOrder = [
     'general',
+    'gardens',
     'outdoor-classroom',
+    'programs',
     'volunteering',
+    'volunteer',
     'donations',
+    'support',
     'grants',
   ]
 
