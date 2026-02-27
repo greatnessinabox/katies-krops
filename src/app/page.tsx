@@ -9,6 +9,7 @@ import { HeroSection } from '@/components/hero-section'
 import { YouTubeEmbed } from '@/components/youtube-embed'
 import { SectionDivider } from '@/components/section-divider'
 import { LeafDivider } from '@/components/leaf-divider'
+import { AnimatedStat } from '@/components/animated-stat'
 
 export const metadata: Metadata = {
   title: "Katie's Krops — Growing for the Greater Good",
@@ -75,16 +76,12 @@ export default async function HomePage() {
             <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4">
               {stats.map(
                 (stat: { label?: string; value?: string }, i: number) => (
-                  <div
+                  <AnimatedStat
                     key={i}
-                    className="animate-fade-up text-center"
-                    style={{ '--delay': `${i * 100}ms` } as React.CSSProperties}
-                  >
-                    <p className="stat-hero text-white">{stat.value}</p>
-                    <p className="mt-2 text-sm font-medium tracking-wide text-sage-light/80">
-                      {stat.label}
-                    </p>
-                  </div>
+                    value={stat.value ?? ''}
+                    label={stat.label ?? ''}
+                    delay={i * 150}
+                  />
                 )
               )}
             </div>

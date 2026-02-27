@@ -50,7 +50,7 @@ export function NavDropdown({ item }: { item: NavItem }) {
       >
         {item.label}
         <svg
-          className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`h-3.5 w-3.5 transition-transform duration-200 ease-out ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={2}

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { HeroSection } from '@/components/hero-section'
 import { LeafDivider } from '@/components/leaf-divider'
 import { SectionDivider } from '@/components/section-divider'
+import { AnimatedStat } from '@/components/animated-stat'
 
 export const metadata: Metadata = {
   title: 'Our Story & Mission',
@@ -146,18 +147,14 @@ export default function AboutPage() {
               The Numbers Speak
             </h2>
           </div>
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4">
             {impactStats.map((stat, i) => (
-              <div
+              <AnimatedStat
                 key={stat.label}
-                className="animate-fade-up text-center"
-                style={{ '--delay': `${i * 120}ms` } as React.CSSProperties}
-              >
-                <p className="stat-hero text-white">{stat.value}</p>
-                <p className="mt-3 text-sm font-medium text-sage-light/70">
-                  {stat.label}
-                </p>
-              </div>
+                value={stat.value}
+                label={stat.label}
+                delay={i * 150}
+              />
             ))}
           </div>
         </div>

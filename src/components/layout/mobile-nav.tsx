@@ -20,7 +20,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
 
   return (
     <div className="lg:hidden">
-      {/* Hamburger Button */}
+      {/* Hamburger Button — always shows hamburger icon (close is inside panel) */}
       <button
         onClick={toggle}
         className="relative z-[70] flex h-11 w-11 items-center justify-center rounded-lg text-stone-700 transition-colors hover:bg-sage-light/40"
@@ -36,29 +36,26 @@ export function MobileNav({ items }: { items: NavItem[] }) {
           stroke="currentColor"
           aria-hidden="true"
         >
-          {isOpen ? (
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          ) : (
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-          )}
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
         </svg>
       </button>
 
-      {/* Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-[60] bg-stone-900/30 backdrop-blur-sm"
-          onClick={close}
-          aria-hidden="true"
-        />
-      )}
+      {/* Overlay — always rendered, fade in/out */}
+      <div
+        className={`fixed inset-0 z-[60] bg-stone-900/30 backdrop-blur-sm transition-opacity duration-300 ease-out ${
+          isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+        onClick={close}
+        aria-hidden="true"
+      />
 
       {/* Slide-out Panel */}
       <nav
         id="mobile-menu"
-        className={`fixed right-0 top-0 z-[60] flex h-full w-72 flex-col bg-cream shadow-2xl transition-transform duration-300 ${
+        className={`fixed right-0 top-0 z-[65] flex h-full w-72 flex-col bg-cream shadow-2xl transition-transform duration-500 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
+        style={{ transitionTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)' }}
         aria-label="Mobile navigation"
       >
         <div className="flex h-16 items-center justify-between border-b border-border px-6">

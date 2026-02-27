@@ -113,7 +113,7 @@ export default async function EventsPage() {
                 More Events
               </h2>
             </div>
-            <div className="space-y-5">
+            <div className="space-y-6">
               {restUpcoming.map((event, i) => (
                 <TimelineEventCard key={event._id} event={event} index={i} />
               ))}
@@ -152,7 +152,7 @@ export default async function EventsPage() {
                   Past Events
                 </h2>
               </div>
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {past.map((event) => (
                   <CompactEventCard key={event._id} event={event} />
                 ))}
