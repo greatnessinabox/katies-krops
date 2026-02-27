@@ -193,11 +193,10 @@ export default async function EventDetailPage({
                 Event Details
               </h2>
 
-              <dl className="space-y-4 text-sm">
+              <div className="space-y-4 text-sm">
                 {/* Date */}
                 {event.date && (
                   <div className="flex items-start gap-3">
-                    <dt className="sr-only">Date</dt>
                     <svg
                       className="h-5 w-5 shrink-0 text-forest"
                       fill="none"
@@ -212,7 +211,7 @@ export default async function EventDetailPage({
                         d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
                       />
                     </svg>
-                    <dd className="text-stone-700">
+                    <div className="text-stone-700">
                       {formatDate(event.date)}
                       {event.endDate && event.endDate !== event.date && (
                         <>
@@ -222,14 +221,13 @@ export default async function EventDetailPage({
                           </span>
                         </>
                       )}
-                    </dd>
+                    </div>
                   </div>
                 )}
 
                 {/* Time */}
                 {event.date && (
                   <div className="flex items-start gap-3">
-                    <dt className="sr-only">Time</dt>
                     <svg
                       className="h-5 w-5 shrink-0 text-forest"
                       fill="none"
@@ -244,19 +242,18 @@ export default async function EventDetailPage({
                         d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <dd className="text-stone-700">
+                    <div className="text-stone-700">
                       {formatTime(event.date)}
                       {event.endDate && (
                         <> &ndash; {formatTime(event.endDate)}</>
                       )}
-                    </dd>
+                    </div>
                   </div>
                 )}
 
                 {/* Location */}
                 {locationStr && (
                   <div className="flex items-start gap-3">
-                    <dt className="sr-only">Location</dt>
                     <svg
                       className="h-5 w-5 shrink-0 text-forest"
                       fill="none"
@@ -276,10 +273,10 @@ export default async function EventDetailPage({
                         d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
                       />
                     </svg>
-                    <dd className="text-stone-700">{locationStr}</dd>
+                    <div className="text-stone-700">{locationStr}</div>
                   </div>
                 )}
-              </dl>
+              </div>
 
               {/* Registration CTA */}
               {event.eventUrl && isUpcoming && (

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { MobileNav } from './mobile-nav'
 import { NavDropdown } from './nav-dropdown'
@@ -57,24 +58,17 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 font-display text-xl font-bold text-forest-dark"
+          className="flex shrink-0 items-center"
           aria-label="Katie's Krops — Home"
         >
-          <svg
-            className="h-8 w-8 text-forest"
-            viewBox="0 0 32 32"
-            fill="none"
-            aria-hidden="true"
-          >
-            <circle cx="16" cy="16" r="14" fill="currentColor" opacity="0.15" />
-            <path
-              d="M16 6c-2 4-6 6-6 10a6 6 0 0012 0c0-4-4-6-6-10z"
-              fill="currentColor"
-            />
-          </svg>
-          <span>
-            Katie&apos;s <span className="text-forest">Krops</span>
-          </span>
+          <Image
+            src="/images/logo.webp"
+            alt="Katie's Krops logo"
+            width={277}
+            height={111}
+            className="h-10 w-auto sm:h-12"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
