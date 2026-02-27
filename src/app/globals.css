@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   /* Organic Modern Palette — earthy, warm, approachable */
@@ -310,6 +311,50 @@ a[role="button"]:active,
 .animate-fade-in {
   animation: fade-in 500ms ease both;
   animation-delay: var(--delay, 0ms);
+}
+
+/* ═══════════════════════════════════════════════════════
+   PROSE / BLOG CONTENT OVERRIDES
+   ═══════════════════════════════════════════════════════ */
+
+/* Match prose typography to site design language */
+.prose {
+  --tw-prose-body: var(--color-stone-600);
+  --tw-prose-headings: var(--color-stone-900);
+  --tw-prose-links: var(--color-forest);
+  --tw-prose-bold: var(--color-stone-800);
+  --tw-prose-quotes: var(--color-stone-700);
+  --tw-prose-quote-borders: var(--color-terracotta);
+  --tw-prose-counters: var(--color-stone-500);
+  --tw-prose-bullets: var(--color-sage);
+  --tw-prose-hr: var(--color-stone-200);
+  --tw-prose-th-borders: var(--color-stone-300);
+  --tw-prose-td-borders: var(--color-stone-200);
+  --tw-prose-captions: var(--color-stone-500);
+}
+
+.prose :where(h1, h2, h3, h4):not(:where([class~="not-prose"] *)) {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+  border-left-color: var(--color-terracotta);
+  font-style: italic;
+}
+
+.prose :where(a):not(:where([class~="not-prose"] *)) {
+  text-decoration-color: var(--color-forest-light);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 150ms ease;
+}
+
+.prose :where(a):not(:where([class~="not-prose"] *)):hover {
+  text-decoration-color: var(--color-forest);
+}
+
+.prose :where(img):not(:where([class~="not-prose"] *)) {
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
 }
 
 /* Reduced motion — respect user preference */

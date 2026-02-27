@@ -165,7 +165,7 @@ export default async function BlogPostPage({
 
       {/* Body */}
       {post.body && (
-        <div className="prose prose-stone mx-auto mt-12 max-w-3xl prose-headings:font-display prose-a:text-forest prose-a:decoration-forest/30 hover:prose-a:decoration-forest prose-img:rounded-lg">
+        <div className="prose prose-lg prose-stone mx-auto mt-12 max-w-3xl prose-headings:font-display prose-a:text-forest prose-a:decoration-forest/30 hover:prose-a:decoration-forest prose-img:rounded-xl prose-img:shadow-md prose-blockquote:border-l-terracotta prose-blockquote:italic">
           <PortableText value={post.body} />
         </div>
       )}

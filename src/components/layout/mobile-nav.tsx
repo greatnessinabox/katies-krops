@@ -20,13 +20,16 @@ export function MobileNav({ items }: { items: NavItem[] }) {
 
   return (
     <div className="lg:hidden">
-      {/* Hamburger Button — always shows hamburger icon (close is inside panel) */}
+      {/* Hamburger Button — hidden when panel is open so it doesn't bleed through */}
       <button
         onClick={toggle}
-        className="relative z-[70] flex h-11 w-11 items-center justify-center rounded-lg text-stone-700 transition-colors hover:bg-sage-light/40"
+        className={`relative flex h-11 w-11 items-center justify-center rounded-lg text-stone-700 transition-colors hover:bg-sage-light/40 ${
+          isOpen ? 'pointer-events-none opacity-0' : ''
+        }`}
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        tabIndex={isOpen ? -1 : 0}
       >
         <svg
           className="h-6 w-6"

@@ -113,7 +113,7 @@ export default async function EventsPage() {
                 More Events
               </h2>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-8">
               {restUpcoming.map((event, i) => (
                 <TimelineEventCard key={event._id} event={event} index={i} />
               ))}
@@ -152,7 +152,7 @@ export default async function EventsPage() {
                   Past Events
                 </h2>
               </div>
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {past.map((event) => (
                   <CompactEventCard key={event._id} event={event} />
                 ))}
@@ -284,7 +284,7 @@ function TimelineEventCard({ event, index }: { event: EVENTS_QUERY_RESULT[number
 
   const card = (
     <div
-      className="animate-fade-up group flex gap-4 rounded-xl bg-white p-5 shadow-sm ring-1 ring-stone-900/5 transition-all hover:shadow-md sm:gap-6 sm:p-6"
+      className="animate-fade-up group flex gap-4 rounded-xl border border-stone-200 bg-white p-5 shadow-md transition-all hover:shadow-lg sm:gap-6 sm:p-6"
       style={{ '--delay': `${index * 60}ms` } as React.CSSProperties}
     >
       {/* Date badge */}
